@@ -1,0 +1,27 @@
+{
+  "mode": "teaser",
+  "teaser": {
+    "heroTitle": "Happy 29th Birthday! 🎂",
+    "heroSubtitle": "Wishing you the most wonderful day, Jil!",
+    "heroMessage": "Another year of adventures, laughter, and memories together — and there's one more on the way.",
+    "giftTitle": "A Gift Is Coming Your Way 🎁",
+    "giftMessage": "I have something special planned for us — a shared experience that we'll get to enjoy together.",
+    "giftHint": "The final details will be decided when we meet in Berlin. Consider this your official save-the-date for a little adventure!",
+    "giftIcon": "✨",
+    "footerNote": "With love from Munich, Leo 💛"
+  },
+  "reveal": {
+    "heroTitle": "Happy 29th Birthday! 🎂",
+    "heroSubtitle": "And here's your real surprise, Jil!",
+    "heroMessage": "The wait is over — here's what we're doing together.",
+    "giftTitle": "Our Adventure: Therme Erding 🌊",
+    "giftMessage": "A full spa day at Therme Erding — one of Europe's largest thermal bath complexes. Think warm pools, saunas, waterslides, and total relaxation.",
+    "giftDetails": [
+      "📍 Therme Erding, near Munich",
+      "🗓️ Date TBD — we'll pick a weekend that works for both of us",
+      "🏨 Optional overnight stay so we can make a full trip of it"
+    ],
+    "giftIcon": "🛁",
+    "footerNote": "Can't wait to experience this with you! — Leo 💛"
+  }
+}
