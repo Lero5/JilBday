@@ -8,9 +8,12 @@ import { isValidBirthdaySessionToken, SESSION_COOKIE_NAME } from "@/lib/birthday
 
 export const runtime = "nodejs";
 
+const DEFAULT_EXTERNAL_VIDEO_URL =
+  "https://q1zqow49qzn3ahtq.public.blob.vercel-storage.com/BigInJapan-FlikQp9HZuQKLM1gPmrEubcB4qnsCg.mp4";
+
 function getExternalVideoUrl(): string | null {
   const configuredUrl = process.env.BIRTHDAY_VIDEO_URL?.trim();
-  return configuredUrl ? configuredUrl : null;
+  return configuredUrl || DEFAULT_EXTERNAL_VIDEO_URL;
 }
 
 async function resolveVideoPath(): Promise<string> {

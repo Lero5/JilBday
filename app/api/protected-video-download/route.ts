@@ -6,6 +6,9 @@ import { isValidBirthdaySessionToken, SESSION_COOKIE_NAME } from "@/lib/birthday
 
 export const runtime = "nodejs";
 
+const DEFAULT_EXTERNAL_VIDEO_URL =
+  "https://q1zqow49qzn3ahtq.public.blob.vercel-storage.com/BigInJapan-FlikQp9HZuQKLM1gPmrEubcB4qnsCg.mp4";
+
 async function getLocalVideoBuffer() {
   const candidatePaths = [
     join(process.cwd(), "media", "biginjapan.mp4"),
@@ -31,7 +34,7 @@ export async function GET() {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const externalVideoUrl = process.env.BIRTHDAY_VIDEO_URL?.trim();
+  const externalVideoUrl = process.env.BIRTHDAY_VIDEO_URL?.trim() || DEFAULT_EXTERNAL_VIDEO_URL;
 
   if (externalVideoUrl) {
     const upstreamResponse = await fetch(externalVideoUrl, { cache: "no-store" });

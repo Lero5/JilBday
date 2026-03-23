@@ -20,7 +20,7 @@ function BirthdayContent() {
       >
         <header className="border-b border-stone-200/70 pb-8 text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-stone-500">
-            Für dich
+            Für dich, Jiliane
           </p>
           <h1 className="text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl">
             Zu deinem Geburtstag...
