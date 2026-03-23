@@ -42,43 +42,7 @@ export async function GET(request: NextRequest) {
   const externalVideoUrl = getExternalVideoUrl();
 
   if (externalVideoUrl) {
-    const forwardedHeaders = new Headers();
-    const rangeHeader = request.headers.get("range");
-
-    if (rangeHeader) {
-      forwardedHeaders.set("range", rangeHeader);
-    }
-
-    const upstreamResponse = await fetch(externalVideoUrl, {
-      headers: forwardedHeaders,
-      cache: "no-store",
-    });
-
-    if (!upstreamResponse.ok && upstreamResponse.status !== 206) {
-      return NextResponse.json({ error: "Video unavailable" }, { status: upstreamResponse.status });
-    }
-
-    const responseHeaders = new Headers();
-    const contentType = upstreamResponse.headers.get("content-type") ?? "video/mp4";
-    const contentLength = upstreamResponse.headers.get("content-length");
-    const contentRange = upstreamResponse.headers.get("content-range");
-
-    responseHeaders.set("Content-Type", contentType);
-    responseHeaders.set("Accept-Ranges", upstreamResponse.headers.get("accept-ranges") ?? "bytes");
-    responseHeaders.set("Cache-Control", "private, no-store, no-cache, must-revalidate");
-
-    if (contentLength) {
-      responseHeaders.set("Content-Length", contentLength);
-    }
-
-    if (contentRange) {
-      responseHeaders.set("Content-Range", contentRange);
-    }
-
-    return new NextResponse(upstreamResponse.body, {
-      status: upstreamResponse.status,
-      headers: responseHeaders,
-    });
+    return NextResponse.redirect(externalVideoUrl, { status: 307 });
   }
 
   const videoPath = await resolveVideoPath();
