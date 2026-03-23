@@ -1,97 +1,72 @@
-import content from "@/content.json";
+import { cookies } from "next/headers";
+import { UnlockForm } from "./UnlockForm";
+import { isValidBirthdaySessionToken, SESSION_COOKIE_NAME } from "@/lib/birthday-auth";
 
-type TeaserContent = typeof content.teaser;
-type RevealContent = typeof content.reveal;
+function BirthdayContent() {
+  const videoSource = process.env.BIRTHDAY_VIDEO_URL ?? "/api/protected-video";
 
-function TeaserSection({ data }: { data: TeaserContent }) {
   return (
-    <section
-      className="mx-auto max-w-lg rounded-3xl bg-white/70 p-8 shadow-xl backdrop-blur-sm animate-fade-in-up animate-delay-400"
-      aria-label="Gift teaser"
-    >
-      <div
-        className="mb-4 text-5xl animate-float"
-        role="img"
-        aria-label="sparkles"
-      >
-        {data.giftIcon}
-      </div>
-      <h2 className="mb-3 text-2xl font-bold text-rose-700">{data.giftTitle}</h2>
-      <p className="mb-4 text-base leading-relaxed text-gray-700">
-        {data.giftMessage}
-      </p>
-      <div className="rounded-2xl bg-rose-50 px-6 py-4">
-        <p className="text-sm leading-relaxed text-rose-800">{data.giftHint}</p>
-      </div>
-    </section>
-  );
-}
+    <main className="min-h-screen bg-zinc-50 px-4 py-10">
+      <div className="mx-auto w-full max-w-2xl animate-fade-in-up space-y-10 rounded-3xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+        <header>
+          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
+            Zu deinem Geburtstag...
+          </h1>
+        </header>
 
-function RevealSection({ data }: { data: RevealContent }) {
-  return (
-    <section
-      className="mx-auto max-w-lg rounded-3xl bg-white/70 p-8 shadow-xl backdrop-blur-sm animate-fade-in-up animate-delay-400"
-      aria-label="Gift reveal"
-    >
-      <div
-        className="mb-4 text-5xl animate-float"
-        role="img"
-        aria-label="gift icon"
-      >
-        {data.giftIcon}
-      </div>
-      <h2 className="mb-3 text-2xl font-bold text-rose-700">{data.giftTitle}</h2>
-      <p className="mb-5 text-base leading-relaxed text-gray-700">
-        {data.giftMessage}
-      </p>
-      <ul className="space-y-2">
-        {data.giftDetails.map((detail, i) => (
-          <li
-            key={i}
-            className="rounded-xl bg-rose-50 px-5 py-3 text-sm text-rose-800"
+        <section className="space-y-4">
+          <p className="text-base leading-relaxed text-zinc-700">
+            Wollte ich dir meinen Gesang ersparen... also hab ich diesen Dude gefragt ob er für dich singt.
+            Ich bewundere sein Selbstvertrauen. Habs trotzdem nicht geschafft das zu Ende zu hören haha
+          </p>
+
+          <video
+            controls
+            preload="metadata"
+            className="w-full rounded-2xl border border-black/10 bg-black"
+            src={videoSource}
           >
-            {detail}
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
+            Dein Browser unterstützt das Video-Tag nicht.
+          </video>
+        </section>
 
-export default function BirthdayPage() {
-  const { mode, teaser, reveal } = content;
-  const isReveal = mode === "reveal";
-  const active = isReveal ? reveal : teaser;
+        <section className="space-y-4">
+          <p className="text-base leading-relaxed text-zinc-700">
+            Wollte ich ein schönes Erlebnis schenken.
+            Ob du das mit mir machst, oder mit Franzi oder sonst wem, liegt ganz bei dir.
+          </p>
 
-  return (
-    <main className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-fuchsia-50 px-4 py-12">
-      {/* Hero */}
-      <header className="mb-10 text-center">
-        <p className="mb-2 text-sm font-medium uppercase tracking-widest text-rose-400 animate-fade-in-up">
-          For Jil
-        </p>
-        <h1 className="mb-3 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl animate-fade-in-up animate-delay-100">
-          {active.heroTitle}
-        </h1>
-        <p className="mb-4 text-lg font-medium text-rose-600 animate-fade-in-up animate-delay-200">
-          {active.heroSubtitle}
-        </p>
-        <p className="mx-auto max-w-md text-base leading-relaxed text-gray-600 animate-fade-in-up animate-delay-300">
-          {active.heroMessage}
-        </p>
-      </header>
+          <a
+            href="/api/protected-download"
+            className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-700"
+          >
+            Download
+          </a>
+        </section>
 
-      {/* Gift section */}
-      {isReveal ? (
-        <RevealSection data={reveal} />
-      ) : (
-        <TeaserSection data={teaser} />
-      )}
-
-      {/* Footer */}
-      <footer className="mt-12 text-center animate-fade-in-up animate-delay-500">
-        <p className="text-sm text-gray-400">{active.footerNote}</p>
-      </footer>
+        <section>
+          <p className="text-base leading-relaxed text-zinc-700">
+            Möchte ich ehrlich sein. Kein Mensch über 21 mag es älter zu werden, aber aufhalten können wir&apos;s trotzdem nicht.
+            Wir können uns nur dabei helfen, die schönste Zeit zu haben, die wir uns vorstellen können.
+            Du hilfst mir dabei. Danke dafür.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-zinc-700">
+            Ich wünsche dir alles Gute und ein unvergessliches nächstes Jahr.
+          </p>
+        </section>
+      </div>
     </main>
   );
+}
+
+export default async function BirthdayPage() {
+  const cookieStore = await cookies();
+  const session = cookieStore.get(SESSION_COOKIE_NAME)?.value;
+  const isUnlocked = isValidBirthdaySessionToken(session);
+
+  if (!isUnlocked) {
+    return <UnlockForm />;
+  }
+
+  return <BirthdayContent />;
 }
