@@ -6,8 +6,14 @@ function BirthdayContent() {
   const videoSource = process.env.BIRTHDAY_VIDEO_URL ?? "/api/protected-video";
 
   return (
-    <main className="min-h-screen bg-zinc-50 px-4 py-10">
-      <div className="mx-auto w-full max-w-2xl animate-fade-in-up space-y-10 rounded-3xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+    <main
+      className="min-h-screen bg-zinc-100 bg-cover bg-center bg-no-repeat px-4 py-10"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(250, 250, 249, 0.76), rgba(250, 250, 249, 0.82)), url('/api/protected-background')",
+      }}
+    >
+      <div className="mx-auto w-full max-w-2xl animate-fade-in-up space-y-10 rounded-3xl border border-white/40 bg-white/82 p-6 shadow-sm backdrop-blur-[2px] sm:p-8">
         <header>
           <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
             Zu deinem Geburtstag...
