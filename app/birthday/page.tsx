@@ -7,19 +7,22 @@ function BirthdayContent() {
 
   return (
     <main
-      className="min-h-screen bg-stone-200 bg-cover bg-center bg-no-repeat px-4 py-8 sm:py-10"
+      className="min-h-screen bg-stone-300 px-4 py-0"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(120, 122, 126, 0.22), rgba(120, 122, 126, 0.22)), linear-gradient(rgba(245, 245, 244, 0.34), rgba(245, 245, 244, 0.54)), url('/api/protected-background')",
+          "linear-gradient(rgba(120, 124, 132, 0.24), rgba(120, 124, 132, 0.24)), linear-gradient(rgba(240, 240, 240, 0.2), rgba(240, 240, 240, 0.35)), url('/api/protected-background')",
         backgroundBlendMode: "saturation, normal, normal",
+        backgroundRepeat: "repeat, repeat, repeat",
+        backgroundSize: "auto, auto, 520px auto",
+        backgroundPosition: "0 0, 0 0, center top",
       }}
     >
       <div
-        className="mx-auto w-full max-w-2xl animate-fade-in-up rounded-xl border border-stone-200 p-5 shadow-[0_18px_48px_rgba(20,20,20,0.14)] sm:p-8"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.96)" }}
+        className="mx-auto w-full max-w-[620px] animate-fade-in-up border border-stone-500 p-5 shadow-[0_10px_26px_rgba(20,20,20,0.18)] sm:p-7"
+        style={{ backgroundColor: "rgba(245, 245, 245, 0.96)" }}
       >
-        <header className="border-b border-stone-200/70 pb-8 text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-stone-500">
+        <header className="text-center">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-stone-700">
             Für dich, Jiliane
           </p>
           <h1 className="text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl">
@@ -30,14 +33,17 @@ function BirthdayContent() {
           </p>
         </header>
 
-        <div className="mt-8 space-y-6">
-          <section className="space-y-4 rounded-lg border border-stone-200 bg-[rgba(255,255,255,0.96)] p-5 shadow-[0_8px_22px_rgba(0,0,0,0.05)] sm:p-6">
-            <div className="inline-flex rounded-md bg-stone-100 px-3 py-1 text-xs font-medium tracking-wide text-stone-700">
+        <div className="mt-8 space-y-0">
+          <section className="border border-stone-500 bg-[rgba(250,250,250,0.96)]">
+            <div className="border-b border-stone-500 px-3 py-2 text-lg font-semibold text-stone-800">
               Erstmal etwas Entertainment
             </div>
-            <p>
-              Zum Geburstag wollte ich dir meinen eigenen Gesang ersparen - also habe ich jemanden gefragt, das für mich zu übernehmen.</p>
-            <p>
+
+            <div className="space-y-4 px-4 py-4 text-base leading-8 text-stone-800">
+              <p>
+                Zum Geburtstag wollte ich dir meinen eigenen Gesang ersparen - also habe ich jemanden gefragt, das für mich zu übernehmen.
+              </p>
+              <p>
                 <a
                   href="https://www.instagram.com/p/DVVyHjxjpBR/"
                   target="_blank"
@@ -47,53 +53,53 @@ function BirthdayContent() {
                   Oliver
                 </a>
                 s Selbstvertrauen ist wirklich beeindruckend. Ich finde sogar, er ist ein tolles Vorbild für alle Leute, die einem Traum hinterherjagen.
-              
-              
-            </p> 
-            <p> 
-              PS: Seine besten Glückwünsche zum Geburtstag!
-            </p>
+              </p>
+              <p>PS: Seine besten Glückwünsche zum Geburtstag!</p>
+            </div>
 
             <video
               controls
               preload="metadata"
-              className="w-full rounded-md border border-black/10 bg-black shadow-sm"
+              className="w-full border-y border-stone-500 bg-black"
               src={videoSource}
             >
               Dein Browser unterstützt das Video-Tag nicht.
             </video>
 
-            <div className="flex justify-center pt-1">
+            <div className="flex justify-center px-4 py-4">
               <a
                 href="/api/protected-video-download"
-                className="inline-flex items-center justify-center rounded-md border border-stone-300 bg-white px-5 py-2.5 text-sm font-medium text-stone-900 transition hover:border-stone-400 hover:bg-stone-50"
+                className="inline-flex items-center justify-center border border-stone-500 bg-white px-6 py-2.5 text-base font-medium text-stone-900 transition hover:bg-stone-100"
               >
                 Download Video
               </a>
             </div>
           </section>
 
-          <section className="space-y-4 rounded-lg border border-stone-200 bg-[rgba(255,255,255,0.96)] p-5 shadow-[0_8px_22px_rgba(0,0,0,0.05)] sm:p-6">
-            <div className="inline-flex rounded-md bg-stone-100 px-3 py-1 text-xs font-medium tracking-wide text-stone-700">
+          <section className="border-x border-b border-stone-500 bg-[rgba(250,250,250,0.96)]">
+            <div className="border-b border-stone-500 px-3 py-2 text-lg font-semibold text-stone-800">
               Und etwas Schönes dazu
             </div>
-            <p>
-              Ich wollte dir etwas schenken, das man wirklich erlebt und nicht nur irgendwo hinstellt.
-              Ob du das mit mir machst, mit Franzi oder mit irgendwem sonst, ist komplett dir überlassen.
-            </p>
 
-            <div className="flex justify-center pt-1">
+            <div className="px-4 py-4 text-base leading-8 text-stone-800">
+              <p>
+                Ich wollte dir etwas schenken, das man wirklich erlebt und nicht nur irgendwo hinstellt.
+                Ob du das mit mir machst, mit Franzi oder mit irgendwem sonst, ist komplett dir überlassen.
+              </p>
+            </div>
+
+            <div className="flex justify-center px-4 pb-4">
               <a
                 href="/api/protected-download"
-                className="inline-flex items-center justify-center rounded-md border border-stone-300 bg-white px-5 py-2.5 text-sm font-medium text-stone-900 transition hover:border-stone-400 hover:bg-stone-50"
+                className="inline-flex items-center justify-center border border-stone-500 bg-white px-6 py-2.5 text-base font-medium text-stone-900 transition hover:bg-stone-100"
               >
                 Download
               </a>
             </div>
           </section>
 
-          <section className="rounded-lg border border-stone-200/90 p-5 shadow-[0_8px_22px_rgba(0,0,0,0.05)] sm:p-6" style={{ backgroundColor: "rgba(255, 255, 255, 0.98)" }}>
-            <div className="inline-flex rounded-md bg-stone-100 px-3 py-1 text-xs font-medium tracking-wide text-stone-700">
+          <section className="border-x border-b border-stone-500 bg-[rgba(250,250,250,0.96)] px-4 py-4 text-base leading-8 text-stone-800">
+            <div className="mb-4 inline-flex bg-stone-100 px-3 py-1 text-sm font-medium tracking-wide text-stone-700">
               Und jetzt noch ehrlich
             </div>
             <p>
@@ -101,8 +107,7 @@ function BirthdayContent() {
               Also bleibt eigentlich nur, die Zeit dazwischen so schön zu machen, wie wir nur können.
               Mir hilfst du dabei und dafür bin ich sehr dankbar.
             </p>
-            <br />
-            <p>
+            <p className="mt-4">
               Jiliane, ich wünsche dir von Herzen alles Gute und ein fantastisches nächstes Jahr.
             </p>
           </section>
