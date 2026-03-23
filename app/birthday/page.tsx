@@ -35,7 +35,7 @@ function BirthdayContent() {
             <div className="inline-flex rounded-md bg-stone-100 px-3 py-1 text-xs font-medium tracking-wide text-stone-700">
               Erstmal etwas Entertainment
             </div>
-            <p className="text-base leading-8 text-stone-700 sm:text-[1.04rem]">
+            <p>
               Zum Geburstag wollte ich dir meinen eigenen Gesang ersparen - also habe ich jemanden gefragt, das für mich zu übernehmen.</p>
             <p>
                 <a
@@ -77,7 +77,7 @@ function BirthdayContent() {
             <div className="inline-flex rounded-md bg-stone-100 px-3 py-1 text-xs font-medium tracking-wide text-stone-700">
               Und etwas Schönes dazu
             </div>
-            <p className="text-base leading-8 text-stone-700 sm:text-[1.04rem]">
+            <p>
               Ich wollte dir etwas schenken, das man wirklich erlebt und nicht nur irgendwo hinstellt.
               Ob du das mit mir machst, mit Franzi oder mit irgendwem sonst, ist komplett dir überlassen.
             </p>
@@ -96,13 +96,14 @@ function BirthdayContent() {
             <div className="inline-flex rounded-md bg-stone-100 px-3 py-1 text-xs font-medium tracking-wide text-stone-700">
               Und jetzt noch ehrlich
             </div>
-            <p className="mt-4 text-base leading-8 text-stone-700 sm:text-[1.04rem]">
+            <p>
               Kein Mensch über 21 findet es wirklich toll, älter zu werden - aber verhindern können wir&apos;s leider auch nicht.
               Also bleibt eigentlich nur, die Zeit dazwischen so schön zu machen, wie wir nur können.
               Mir hilfst du dabei und dafür bin ich sehr dankbar.
             </p>
-            <p className="mt-4 text-base leading-8 text-stone-700 sm:text-[1.04rem]">
-              Ich wünsche dir von Herzen alles Gute und ein fantastisches nächstes Jahr.
+            <br />
+            <p>
+              Jiliane, ich wünsche dir von Herzen alles Gute und ein fantastisches nächstes Jahr.
             </p>
           </section>
         </div>
